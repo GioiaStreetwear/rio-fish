@@ -29,7 +29,6 @@
         radial-gradient(900px 500px at 20% 10%, rgba(124,92,255,.22), transparent 60%),
         radial-gradient(700px 500px at 90% 20%, rgba(46,229,157,.14), transparent 55%),
         linear-gradient(180deg,#070810,var(--bg));
-      overflow-x:hidden;
     }
 
     .wrap{max-width:1200px;margin:0 auto;padding:24px}
@@ -50,17 +49,13 @@
       overflow:hidden;
     }
 
-    /* LEFT: MAP */
-    .mapCard{ padding:14px; }
+    /* MAP */
+    .mapCard{padding:14px}
     .map{
       position:relative;
-      height:520px; /* groter */
+      height:520px;
       border-radius:18px;
       overflow:hidden;
-      background: rgba(0,0,0,.15);
-    }
-    @media(max-width:960px){
-      .map{height:420px}
     }
     .map iframe{
       position:absolute;
@@ -74,10 +69,11 @@
       position:absolute;
       left:14px; right:14px; top:14px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
       gap:10px;
       pointer-events:none;
+      z-index:2;
     }
 
     .badge{
@@ -89,29 +85,20 @@
       backdrop-filter: blur(10px);
       font-weight:800;
       font-size:13px;
-      color:rgba(245,247,255,.95);
-      max-width: 75%;
+      max-width:75%;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-    }
-
-    .pillRow{
-      pointer-events:auto;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
     }
 
     .btn{
       pointer-events:auto;
       padding:10px 14px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
       background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.16);
       backdrop-filter: blur(10px);
-      color:rgba(245,247,255,.92);
+      color:var(--text);
       font-weight:800;
       font-size:13px;
       text-decoration:none;
@@ -140,18 +127,18 @@
       font-weight:800;
       font-size:14px;
       text-decoration:none;
-      box-shadow: 0 12px 40px rgba(124,92,255,.25);
-    }
-    .cta:hover{transform:translateY(-1px)}
-    .note{
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.4;
-      margin:0;
-      max-width: 360px;
+      box-shadow:0 12px 40px rgba(124,92,255,.25);
     }
 
-    /* RIGHT: INFO */
+    .note{
+      font-size:12px;
+      color:var(--muted);
+      margin:0;
+      max-width:360px;
+      line-height:1.4;
+    }
+
+    /* INFO */
     .side{padding:22px;display:grid;gap:16px}
     .logo{
       font-family:'Montserrat',sans-serif;
@@ -159,10 +146,7 @@
       letter-spacing:.75em;
       text-transform:uppercase;
       font-size:18px;
-      color:rgba(245,247,255,.92);
     }
-    @media(max-width:420px){.logo{letter-spacing:.55em}}
-
     .text{color:var(--muted);line-height:1.75;margin:0}
     .coords{
       width:fit-content;
@@ -174,16 +158,7 @@
     }
     .divider{height:1px;background:var(--line);margin:8px 0}
 
-    .insta{
-      max-width: 420px; /* iets kleiner en netter */
-    }
-
-    .footerRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
+    .insta{max-width:420px}
   </style>
 </head>
 
@@ -191,21 +166,19 @@
 <main class="wrap">
   <div class="layout">
 
-    <!-- LEFT: MAP + CTA -->
-    <section class="card mapCard" aria-label="Map">
+    <!-- LEFT -->
+    <section class="card mapCard">
       <div class="map">
         <div class="mapOverlay">
-          <div class="badge" id="badgeText">📍</div>
-          <div class="pillRow">
-            <a class="btn" id="openMapsBtn" target="_blank" rel="noopener">🗺️ Open Maps</a>
-            <a class="btn" id="satBtn" target="_blank" rel="noopener">🛰️ Satellite</a>
-          </div>
+          <div class="badge" id="badgeText"></div>
+          <a class="btn" id="openMapsBtn" target="_blank" rel="noopener">🗺️ Open Maps</a>
         </div>
 
-        <!-- Satellite embed (zonder Google "place card" overload zo veel mogelijk) -->
+        <!-- Satellite map -->
         <iframe id="mapFrame"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
 
       <div class="ctaWrap">
@@ -213,13 +186,13 @@
           👣 Klik hier om de plek van de graffiti in Street View te zien
         </a>
         <p class="note">
-          Tip: Street View opent in een nieuw tabblad voor de beste werking in Safari & Firefox.
+          Street View opent in een nieuw tabblad voor de beste werking in Safari &amp; Firefox.
         </p>
       </div>
     </section>
 
-    <!-- RIGHT: INFO + INSTAGRAM -->
-    <aside class="card side" aria-label="Info">
+    <!-- RIGHT -->
+    <aside class="card side">
       <div class="logo">GIOIA MUNDO</div>
 
       <p class="text">
@@ -237,16 +210,9 @@
         <blockquote class="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/p/Cr8z_WQOFVn/"
           data-instgrm-version="14"
-          style="background:#fff;border:0;margin:0;max-width:100%;min-width:260px;padding:0;border-radius:14px">
+          style="background:#fff;border-radius:14px">
         </blockquote>
         <script async src="https://www.instagram.com/embed.js"></script>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="footerRow">
-        <a class="btn" href="https://www.instagram.com/svn_shlne/" target="_blank" rel="noopener">📸 @svn_shlne</a>
-        <a class="btn" href="https://www.instagram.com/svn_shlne/" target="_blank" rel="noopener">↗ Open artist</a>
       </div>
     </aside>
 
@@ -254,29 +220,19 @@
 </main>
 
 <script>
-  // ✅ Adres (zoals jij wilde)
-  const address = "2 R. Ten. Maurício de Medeiros, Rio de Janeiro - RJ, Brazil";
-
-  // encode voor URL
+  // ✅ NIEUW ADRES
+  const address = "4 R. Ten. Maurício de Medeiros, Rio de Janeiro, Brazil";
   const q = encodeURIComponent(address);
 
-  // Links
+  const mapEmbedUrl = `https://www.google.com/maps?q=${q}&z=19&t=k&output=embed`;
   const openMapsUrl = `https://www.google.com/maps/search/?api=1&query=${q}`;
   const streetViewUrl = `https://www.google.com/maps/@?api=1&map_action=pano&query=${q}`;
 
-  // Satellite map (embed)
-  // Let op: zonder API kan Google soms andere UI tonen, maar dit is de “cleanste” aanpak.
-  const mapEmbedUrl = `https://www.google.com/maps?q=${q}&z=19&t=k&output=embed`;
-
-  // Zet UI
   document.getElementById("badgeText").textContent = `📍 ${address}`;
   document.getElementById("addrText").textContent = address;
-
-  document.getElementById("openMapsBtn").href = openMapsUrl;
-  document.getElementById("satBtn").href = openMapsUrl; // opent Google Maps waar je zelf makkelijk satellite kiest
-  document.getElementById("streetBtn").href = streetViewUrl;
-
   document.getElementById("mapFrame").src = mapEmbedUrl;
+  document.getElementById("openMapsBtn").href = openMapsUrl;
+  document.getElementById("streetBtn").href = streetViewUrl;
 </script>
 </body>
 </html>
