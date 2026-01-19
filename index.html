@@ -170,19 +170,22 @@
     <section class="card mapCard">
       <div class="map">
         <div class="mapOverlay">
-          <div class="badge" id="badgeText"></div>
-          <a class="btn" id="openMapsBtn" target="_blank" rel="noopener">🗺️ Open Maps</a>
+          <div class="badge">📍 4 R. Ten. Maurício de Medeiros</div>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=-22.921319955468547,-43.188726945225916" target="_blank">🗺️ Open Maps</a>
         </div>
 
-        <!-- Satellite map -->
-        <iframe id="mapFrame"
+        <!-- Satellite map using COORDINATES -->
+        <iframe
+          src="https://www.google.com/maps?output=embed&z=19&t=k&ll=-22.921319955468547,-43.188726945225916"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
 
       <div class="ctaWrap">
-        <a class="cta" id="streetBtn" target="_blank" rel="noopener">
+        <a class="cta"
+           href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-22.921319955468547,-43.188726945225916"
+           target="_blank" rel="noopener">
           👣 Klik hier om de plek van de graffiti in Street View te zien
         </a>
         <p class="note">
@@ -202,7 +205,9 @@
         and below you find the artist who created it.
       </p>
 
-      <span class="coords" id="addrText"></span>
+      <span class="coords">
+        -22.921319955468547, -43.188726945225916
+      </span>
 
       <div class="divider"></div>
 
@@ -218,21 +223,5 @@
 
   </div>
 </main>
-
-<script>
-  // ✅ NIEUW ADRES
-  const address = "4 R. Ten. Maurício de Medeiros, Rio de Janeiro, Brazil";
-  const q = encodeURIComponent(address);
-
-  const mapEmbedUrl = `https://www.google.com/maps?q=${q}&z=19&t=k&output=embed`;
-  const openMapsUrl = `https://www.google.com/maps/search/?api=1&query=${q}`;
-  const streetViewUrl = `https://www.google.com/maps/@?api=1&map_action=pano&query=${q}`;
-
-  document.getElementById("badgeText").textContent = `📍 ${address}`;
-  document.getElementById("addrText").textContent = address;
-  document.getElementById("mapFrame").src = mapEmbedUrl;
-  document.getElementById("openMapsBtn").href = openMapsUrl;
-  document.getElementById("streetBtn").href = streetViewUrl;
-</script>
 </body>
 </html>
