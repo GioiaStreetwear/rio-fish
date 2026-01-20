@@ -112,7 +112,7 @@
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      align-items:center;
+      align-items:flex-start;
       justify-content:space-between;
     }
 
@@ -131,11 +131,11 @@
     }
 
     .note{
-      font-size:12px;
+      font-size:13px;
       color:var(--muted);
       margin:0;
-      max-width:360px;
-      line-height:1.4;
+      max-width:420px;
+      line-height:1.6;
     }
 
     /* INFO */
@@ -166,7 +166,7 @@
 <main class="wrap">
   <div class="layout">
 
-    <!-- LEFT -->
+    <!-- LEFT: MAP -->
     <section class="card mapCard">
       <div class="map">
         <div class="mapOverlay">
@@ -174,11 +174,11 @@
           <a class="btn"
              href="https://www.google.com/maps/search/?api=1&query=-22.921319955468547,-43.188726945225916"
              target="_blank" rel="noopener">
-             🗺️ Open Maps
+            🗺️ Open Maps
           </a>
         </div>
 
-        <!-- EXACT satellite map via COORDINATES -->
+        <!-- Satellite map via coordinates -->
         <iframe
           src="https://www.google.com/maps?output=embed&z=19&t=k&ll=-22.921319955468547,-43.188726945225916"
           loading="lazy"
@@ -186,21 +186,20 @@
         </iframe>
       </div>
 
-     <div class="ctaWrap">
-  <a class="cta"
-     href="https://www.google.com/maps?layer=c&cbll=-22.921319955468547,-43.188726945225916&cbp=11,0,0,0,0"
-     target="_blank" rel="noopener">
-    👣 Klik hier om de plek van de graffiti in Street View te zien
-  </a>
+      <div class="ctaWrap">
+        <a class="cta"
+           href="https://www.google.com/maps?layer=c&cbll=-22.921319955468547,-43.188726945225916&cbp=11,0,0,0,0"
+           target="_blank" rel="noopener">
+          👣 Klik hier om de plek van de graffiti in Street View te zien
+        </a>
 
-  <p class="note">
-    Turn around and walk up in the street. You will find the tag on your right. Enjoy.
-  </p>
-</div>
-
+        <p class="note">
+          Turn around and walk up in the street. You will find the tag on your right. Enjoy.
+        </p>
+      </div>
     </section>
 
-    <!-- RIGHT -->
+    <!-- RIGHT: INFO + INSTAGRAM -->
     <aside class="card side">
       <div class="logo">GIOIA MUNDO</div>
 
@@ -217,13 +216,22 @@
 
       <div class="divider"></div>
 
+      <!-- NEW INSTAGRAM POST -->
       <div class="insta">
         <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/Cr8z_WQOFVn/"
+          data-instgrm-permalink="https://www.instagram.com/p/C2jRkcCOj15/"
           data-instgrm-version="14"
-          style="background:#fff;border-radius:14px">
+          style="background:#fff;border-radius:14px;border:0;margin:0;max-width:100%;">
         </blockquote>
         <script async src="https://www.instagram.com/embed.js"></script>
+
+        <p style="margin-top:10px;font-size:13px;color:#b8bfd8;">
+          Not loading? Open directly on
+          <a href="https://www.instagram.com/p/C2jRkcCOj15/"
+             target="_blank" rel="noopener" style="color:#0095f6;">
+            Instagram
+          </a>.
+        </p>
       </div>
     </aside>
 
